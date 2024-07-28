@@ -1,5 +1,6 @@
 from django.db import models
-from django.utils import slugify
+from django.utils.text import slugify
+
 
 # Create your models here.
 class Link(models.Model):
@@ -10,7 +11,7 @@ class Link(models.Model):
 
         def __str__(self):
             #讓admin的dashboard的link object有語意
-            return f"{{self.name}} | {{self.clicks}}"
+            return f"{self.name} | {self.clicks}"
         
         #創建方法，讓模型和模型能夠交互作用 
         #每當有人點擊 ＝> click就會自增 =>存進資料庫
